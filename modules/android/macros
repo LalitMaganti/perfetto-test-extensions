@@ -1,0 +1,8 @@
+{
+  "Android Startup Analysis": [
+    {"id": "dev.perfetto.RunQueryAndShowTab", "args": ["SELECT * FROM android_startup"]}
+  ],
+  "Show Binder Transactions": [
+    {"id": "dev.perfetto.RunQueryAndShowTab", "args": ["SELECT * FROM android_binder_txns LIMIT 100"]}
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "Chrome Frame Analysis": [
+    {"id": "dev.perfetto.RunQueryAndShowTab", "args": ["SELECT * FROM chrome_frame_times"]}
+  ],
+  "Show Long Tasks": [
+    {"id": "dev.perfetto.RunQueryAndShowTab", "args": ["SELECT * FROM slice WHERE dur > 50000000 AND name LIKE '%Task%'"]}
+  ]
+}
