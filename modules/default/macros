@@ -1,8 +1,10 @@
 {
-  "Show All Tracks": [
-    {"id": "dev.perfetto.ShowAllTracks", "args": []}
-  ],
-  "Clear Filters": [
-    {"id": "dev.perfetto.ClearFilters", "args": []}
-  ]
+  "macros": {
+    "Show All Tracks": [
+      {"id": "dev.perfetto.ShowAllTracks", "args": []}
+    ],
+    "Clear Filters": [
+      {"id": "dev.perfetto.ClearFilters", "args": []}
+    ]
+  }
 }
