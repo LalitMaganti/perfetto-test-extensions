@@ -1,5 +1,5 @@
 {
-  "modules": {
-    "android_helpers": "CREATE PERFETTO VIEW IF NOT EXISTS slow_binder AS SELECT * FROM android_binder_txns WHERE dur > 10000000;"
-  }
+  "sqlModules": [
+    {"name": "dev.perfetto.test.android_helpers", "sql": "CREATE PERFETTO VIEW IF NOT EXISTS slow_binder AS SELECT * FROM android_binder_txns WHERE dur > 10000000;"}
+  ]
 }

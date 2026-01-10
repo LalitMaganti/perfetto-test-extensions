@@ -1,0 +1,6 @@
+{
+  "name": "Test Extensions",
+  "namespace": "dev.perfetto.test",
+  "features": ["macros", "sql_modules", "proto_descriptors"],
+  "modules": ["default", "android", "chrome"]
+}
