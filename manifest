@@ -1,6 +1,6 @@
 {
   "name": "Test Extensions",
-  "namespace": "lalitm_test",
+  "namespace": "dev.perfetto.test",
   "features": ["macros", "sql_modules", "proto_descriptors"],
   "modules": ["default", "android", "chrome"]
 }

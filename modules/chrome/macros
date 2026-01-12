@@ -1,12 +1,12 @@
 {
   "macros": [
     {
-      "id": "lalitm_test.ChromeFrameAnalysis",
+      "id": "dev.perfetto.test.ChromeFrameAnalysis",
       "name": "Chrome Frame Analysis",
       "commands": [{"id": "dev.perfetto.RunQueryAndShowTab", "args": ["SELECT * FROM chrome_frame_times"]}]
     },
     {
-      "id": "lalitm_test.ShowLongTasks",
+      "id": "dev.perfetto.test.ShowLongTasks",
       "name": "Show Long Tasks",
       "commands": [{"id": "dev.perfetto.RunQueryAndShowTab", "args": ["SELECT * FROM slice WHERE dur > 50000000 AND name LIKE '%Task%'"]}]
     }

@@ -1,12 +1,12 @@
 {
   "macros": [
     {
-      "id": "lalitm_test.ShowAllTracks",
+      "id": "dev.perfetto.test.ShowAllTracks",
       "name": "Show All Tracks",
       "commands": [{"id": "dev.perfetto.ShowAllTracks", "args": []}]
     },
     {
-      "id": "lalitm_test.ClearFilters",
+      "id": "dev.perfetto.test.ClearFilters",
       "name": "Clear Filters",
       "commands": [{"id": "dev.perfetto.ClearFilters", "args": []}]
     }
