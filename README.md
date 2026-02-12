@@ -1,10 +1,19 @@
-# Perfetto Extensions
+# Perfetto Server Extensions
 
-Create your own [Perfetto UI extensions](https://github.com/google/perfetto/discussions/3227).
+Server extensions let you share reusable SQL modules and UI macros through the
+[Perfetto UI](https://ui.perfetto.dev) — with your team or the open source
+community. Instead of everyone copy-pasting SQL queries or macro definitions,
+you host them on a server and anyone with access can load them directly in the
+UI.
+
+Extension servers can be any HTTPS endpoint that serves the expected JSON
+format. This repo is a template for the easiest option: hosting on GitHub. For
+the full endpoint specification and other hosting options, see the
+[Server Extensions RFC](https://github.com/google/perfetto/discussions/3227).
 
 ## Getting started
 
-1. Fork this repo, or [import it](https://github.com/new/import) if you want a private copy.
+1. [Fork this repo](https://github.com/LalitMaganti/perfetto-test-extensions/fork), or [import it](https://github.com/new/import) if you want a private copy.
 
 2. Edit `config.yaml` to set your extension's name and namespace:
    ```yaml
@@ -34,6 +43,8 @@ Create your own [Perfetto UI extensions](https://github.com/google/perfetto/disc
 
 If your repo is private, you'll need a GitHub personal access token:
 
-1. Go to [github.com/settings/tokens](https://github.com/settings/tokens) and generate a new token (fine-grained).
-2. Scope it to your extension repo with **Contents: Read** permission.
-3. Enter the token in the Perfetto UI extension settings when adding your server.
+1. Go to [GitHub personal access tokens](https://github.com/settings/personal-access-tokens) and click **Generate new token**.
+2. Under **Repository access**, select **Only select repositories** and choose your extension repo.
+3. Under **Permissions → Repository permissions**, set **Contents** to **Read-only**.
+4. Generate the token and enter it in the Perfetto UI extension settings when adding your server.
+
