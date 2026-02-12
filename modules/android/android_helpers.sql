@@ -1,0 +1,1 @@
+CREATE PERFETTO VIEW IF NOT EXISTS slow_binder AS SELECT * FROM android_binder_txns WHERE dur > 10000000;

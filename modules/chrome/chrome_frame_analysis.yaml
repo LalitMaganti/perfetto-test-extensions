@@ -1,0 +1,5 @@
+name: Chrome Frame Analysis
+commands:
+  - id: dev.perfetto.RunQueryAndShowTab
+    args:
+      - "SELECT * FROM chrome_frame_times"

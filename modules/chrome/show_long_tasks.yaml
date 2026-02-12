@@ -1,0 +1,5 @@
+name: Show Long Tasks
+commands:
+  - id: dev.perfetto.RunQueryAndShowTab
+    args:
+      - "SELECT * FROM slice WHERE dur > 50000000 AND name LIKE '%Task%'"

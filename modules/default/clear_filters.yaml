@@ -1,0 +1,4 @@
+name: Clear Filters
+commands:
+  - id: dev.perfetto.ClearFilters
+    args: []

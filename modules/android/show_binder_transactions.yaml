@@ -1,0 +1,5 @@
+name: Show Binder Transactions
+commands:
+  - id: dev.perfetto.RunQueryAndShowTab
+    args:
+      - "SELECT * FROM android_binder_txns LIMIT 100"

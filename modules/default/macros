@@ -1,14 +1,24 @@
 {
   "macros": [
     {
-      "id": "dev.perfetto.test.ShowAllTracks",
-      "name": "Show All Tracks",
-      "run": [{"id": "dev.perfetto.ShowAllTracks", "args": []}]
-    },
-    {
       "id": "dev.perfetto.test.ClearFilters",
       "name": "Clear Filters",
-      "run": [{"id": "dev.perfetto.ClearFilters", "args": []}]
+      "run": [
+        {
+          "id": "dev.perfetto.ClearFilters",
+          "args": []
+        }
+      ]
+    },
+    {
+      "id": "dev.perfetto.test.ShowAllTracks",
+      "name": "Show All Tracks",
+      "run": [
+        {
+          "id": "dev.perfetto.ShowAllTracks",
+          "args": []
+        }
+      ]
     }
   ]
 }

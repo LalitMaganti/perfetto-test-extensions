@@ -1,0 +1,4 @@
+name: Show All Tracks
+commands:
+  - id: dev.perfetto.ShowAllTracks
+    args: []

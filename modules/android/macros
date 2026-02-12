@@ -3,12 +3,26 @@
     {
       "id": "dev.perfetto.test.AndroidStartupAnalysis",
       "name": "Android Startup Analysis",
-      "run": [{"id": "dev.perfetto.RunQueryAndShowTab", "args": ["SELECT * FROM android_startup"]}]
+      "run": [
+        {
+          "id": "dev.perfetto.RunQueryAndShowTab",
+          "args": [
+            "SELECT * FROM android_startup"
+          ]
+        }
+      ]
     },
     {
       "id": "dev.perfetto.test.ShowBinderTransactions",
       "name": "Show Binder Transactions",
-      "run": [{"id": "dev.perfetto.RunQueryAndShowTab", "args": ["SELECT * FROM android_binder_txns LIMIT 100"]}]
+      "run": [
+        {
+          "id": "dev.perfetto.RunQueryAndShowTab",
+          "args": [
+            "SELECT * FROM android_binder_txns LIMIT 100"
+          ]
+        }
+      ]
     }
   ]
 }
