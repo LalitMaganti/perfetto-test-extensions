@@ -1,3 +1,4 @@
+id: dev.perfetto.test.ShowAllTracks
 name: Show All Tracks
 commands:
   - id: dev.perfetto.ShowAllTracks

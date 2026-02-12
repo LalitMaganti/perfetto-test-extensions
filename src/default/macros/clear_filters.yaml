@@ -1,3 +1,4 @@
+id: dev.perfetto.test.ClearFilters
 name: Clear Filters
 commands:
   - id: dev.perfetto.ClearFilters

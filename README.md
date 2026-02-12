@@ -29,7 +29,31 @@ the full endpoint specification and other hosting options, see the
 
    You can organise SQL files into subdirectories — each path component becomes a dot-separated part of the module name.
 
-4. Add [UI macros](https://perfetto.dev/docs/visualization/ui-automation) as `.yaml` files under `src/{module}/macros/`.
+4. Add [UI macros](https://perfetto.dev/docs/visualization/ui-automation) as `.yaml` or `.json` files under `src/{module}/macros/`.
+
+   Each macro has an `id`, a display `name`, and a list of `commands` to run
+   in sequence. YAML example (`src/default/macros/show_long_tasks.yaml`):
+   ```yaml
+   id: com.example.myext.ShowLongTasks
+   name: Show Long Tasks
+   commands:
+     - id: dev.perfetto.RunQueryAndShowTab
+       args:
+         - "SELECT * FROM slice WHERE dur > 50000000"
+   ```
+
+   Equivalent JSON (`src/default/macros/show_long_tasks.json`):
+   ```json
+   {
+     "id": "com.example.myext.ShowLongTasks",
+     "name": "Show Long Tasks",
+     "commands": [
+       {"id": "dev.perfetto.RunQueryAndShowTab", "args": ["SELECT * FROM slice WHERE dur > 50000000"]}
+     ]
+   }
+   ```
+
+   See the [UI automation docs](https://perfetto.dev/docs/visualization/ui-automation) for the full list of available commands.
 
 5. Push to `main`. A GitHub Action will build and commit the generated endpoint files automatically.
 

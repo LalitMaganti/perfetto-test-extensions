@@ -23,11 +23,6 @@ SRC_DIR = os.path.join(ROOT, 'src')
 MODULES_DIR = os.path.join(ROOT, 'modules')
 
 
-def to_pascal_case(name: str) -> str:
-    """Convert a snake_case name to PascalCase."""
-    return ''.join(word.capitalize() for word in name.split('_'))
-
-
 def load_config() -> dict:
     with open(os.path.join(ROOT, 'config.yaml')) as f:
         return yaml.safe_load(f)
@@ -56,27 +51,31 @@ def collect_sql_modules(sql_dir: str, namespace: str) -> list:
     return modules
 
 
-def collect_macros(macros_dir: str, namespace: str) -> list:
-    """Collect all .yaml files from macros/ dir."""
+def load_macro_file(filepath: str) -> dict:
+    """Load a macro definition from a .yaml or .json file."""
+    with open(filepath) as f:
+        if filepath.endswith('.json'):
+            return json.load(f)
+        return yaml.safe_load(f)
+
+
+def collect_macros(macros_dir: str) -> list:
+    """Collect all .yaml/.json files from macros/ dir."""
     macros = []
     if not os.path.isdir(macros_dir):
         return macros
     entries = sorted(os.listdir(macros_dir))
     for fn in entries:
-        if not fn.endswith('.yaml'):
+        if not fn.endswith('.yaml') and not fn.endswith('.json'):
             continue
-        filepath = os.path.join(macros_dir, fn)
-        with open(filepath) as f:
-            data = yaml.safe_load(f)
-        basename = fn[:-5]  # strip .yaml
-        macro_id = f'{namespace}.{to_pascal_case(basename)}'
+        data = load_macro_file(os.path.join(macros_dir, fn))
         commands = data.get('commands', [])
         run = []
         for cmd in commands:
             entry = {'id': cmd['id'], 'args': cmd.get('args', [])}
             run.append(entry)
         macros.append({
-            'id': macro_id,
+            'id': data['id'],
             'name': data['name'],
             'run': run,
         })
@@ -144,9 +143,9 @@ def build():
             {'sql_modules': sql_modules},
         )
 
-        # Macros (from src/{module}/macros/*.yaml)
+        # Macros (from src/{module}/macros/*.yaml, *.json)
         macros = collect_macros(
-            os.path.join(src_module_dir, 'macros'), namespace)
+            os.path.join(src_module_dir, 'macros'))
         write_json(
             os.path.join(out_module_dir, 'macros'),
             {'macros': macros},

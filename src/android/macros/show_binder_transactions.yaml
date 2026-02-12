@@ -1,3 +1,4 @@
+id: dev.perfetto.test.ShowBinderTransactions
 name: Show Binder Transactions
 commands:
   - id: dev.perfetto.RunQueryAndShowTab

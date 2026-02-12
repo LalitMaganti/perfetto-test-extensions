@@ -1,3 +1,4 @@
+id: dev.perfetto.test.ChromeFrameAnalysis
 name: Chrome Frame Analysis
 commands:
   - id: dev.perfetto.RunQueryAndShowTab
