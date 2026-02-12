@@ -1,5 +1,5 @@
 id: dev.perfetto.test.ClearFilters
 name: Clear Filters
-commands:
+run:
   - id: dev.perfetto.ClearFilters
     args: []

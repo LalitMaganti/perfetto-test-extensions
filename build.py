@@ -69,11 +69,9 @@ def collect_macros(macros_dir: str) -> list:
         if not fn.endswith('.yaml') and not fn.endswith('.json'):
             continue
         data = load_macro_file(os.path.join(macros_dir, fn))
-        commands = data.get('commands', [])
         run = []
-        for cmd in commands:
-            entry = {'id': cmd['id'], 'args': cmd.get('args', [])}
-            run.append(entry)
+        for cmd in data.get('run', []):
+            run.append({'id': cmd['id'], 'args': cmd.get('args', [])})
         macros.append({
             'id': data['id'],
             'name': data['name'],

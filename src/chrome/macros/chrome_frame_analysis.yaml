@@ -1,6 +1,6 @@
 id: dev.perfetto.test.ChromeFrameAnalysis
 name: Chrome Frame Analysis
-commands:
+run:
   - id: dev.perfetto.RunQueryAndShowTab
     args:
       - "SELECT * FROM chrome_frame_times"

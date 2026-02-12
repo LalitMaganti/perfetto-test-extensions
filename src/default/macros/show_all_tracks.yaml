@@ -1,5 +1,5 @@
 id: dev.perfetto.test.ShowAllTracks
 name: Show All Tracks
-commands:
+run:
   - id: dev.perfetto.ShowAllTracks
     args: []

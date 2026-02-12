@@ -31,12 +31,12 @@ the full endpoint specification and other hosting options, see the
 
 4. Add [UI macros](https://perfetto.dev/docs/visualization/ui-automation) as `.yaml` or `.json` files under `src/{module}/macros/`.
 
-   Each macro has an `id`, a display `name`, and a list of `commands` to run
-   in sequence. YAML example (`src/default/macros/show_long_tasks.yaml`):
+   Each macro has an `id`, a display `name`, and a `run` list of commands to
+   execute in sequence. YAML example (`src/default/macros/show_long_tasks.yaml`):
    ```yaml
    id: com.example.myext.ShowLongTasks
    name: Show Long Tasks
-   commands:
+   run:
      - id: dev.perfetto.RunQueryAndShowTab
        args:
          - "SELECT * FROM slice WHERE dur > 50000000"
@@ -47,7 +47,7 @@ the full endpoint specification and other hosting options, see the
    {
      "id": "com.example.myext.ShowLongTasks",
      "name": "Show Long Tasks",
-     "commands": [
+     "run": [
        {"id": "dev.perfetto.RunQueryAndShowTab", "args": ["SELECT * FROM slice WHERE dur > 50000000"]}
      ]
    }
