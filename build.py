@@ -158,13 +158,17 @@ def build():
         )
 
     # Always include all three feature types in manifest
-    all_features = ['macros', 'sql_modules', 'proto_descriptors']
+    all_features = [
+        {'name': 'macros'},
+        {'name': 'sql_modules'},
+        {'name': 'proto_descriptors'},
+    ]
 
     manifest = {
         'name': ext_name,
         'namespace': namespace,
         'features': all_features,
-        'modules': module_names,
+        'modules': [{'name': m} for m in module_names],
     }
     write_json(os.path.join(ROOT, 'manifest'), manifest)
 
