@@ -123,12 +123,17 @@ def build():
     namespace = config['namespace']
     ext_name = config['name']
 
-    module_names = sorted(
-        d for d in os.listdir(SRC_DIR)
-        if os.path.isdir(os.path.join(SRC_DIR, d))
-    )
+    modules = config.get('modules', [])
+    if not modules:
+        # Fall back to discovering modules from src/ directories.
+        modules = [
+            {'id': d, 'name': d}
+            for d in sorted(os.listdir(SRC_DIR))
+            if os.path.isdir(os.path.join(SRC_DIR, d))
+        ]
 
-    for module_name in module_names:
+    for module in modules:
+        module_name = module['id']
         src_module_dir = os.path.join(SRC_DIR, module_name)
         out_module_dir = os.path.join(MODULES_DIR, module_name)
         os.makedirs(out_module_dir, exist_ok=True)
@@ -168,11 +173,12 @@ def build():
         'name': ext_name,
         'namespace': namespace,
         'features': all_features,
-        'modules': [{'name': m} for m in module_names],
+        'modules': [{'id': m['id'], 'name': m['name']} for m in modules],
     }
     write_json(os.path.join(ROOT, 'manifest'), manifest)
 
-    print(f'Built {len(module_names)} modules: {", ".join(module_names)}')
+    module_ids = [m['id'] for m in modules]
+    print(f'Built {len(modules)} modules: {", ".join(module_ids)}')
 
 
 if __name__ == '__main__':

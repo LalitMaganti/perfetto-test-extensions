@@ -1,2 +1,9 @@
 name: Test Extensions
 namespace: dev.perfetto.test
+modules:
+  - id: android
+    name: Android
+  - id: chrome
+    name: Chrome
+  - id: default
+    name: Default
