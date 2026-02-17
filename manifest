@@ -14,13 +14,16 @@
   ],
   "modules": [
     {
-      "name": "android"
+      "id": "android",
+      "name": "Android"
     },
     {
-      "name": "chrome"
+      "id": "chrome",
+      "name": "Chrome"
     },
     {
-      "name": "default"
+      "id": "default",
+      "name": "Default"
     }
   ]
 }
